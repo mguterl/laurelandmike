@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     jade = require('gulp-jade'),
     concat = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
     sass = require('gulp-sass');
 
 gulp.task('templates', function() {
@@ -19,6 +20,7 @@ gulp.task('stylesheets', function() {
 gulp.task('javascripts', function() {
   gulp.src('./javascripts/*.js')
     .pipe(concat('application.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('./dist'));
 });
 
