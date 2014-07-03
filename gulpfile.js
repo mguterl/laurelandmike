@@ -45,6 +45,10 @@ gulp.task('server', function(next) {
   server.use(connect.static('dist')).listen(process.env.PORT || 8000, next);
 });
 
+gulp.task('cname', function() {
+  require('fs').writeFile('dist/CNAME', 'laurelandmike.com')
+});
+
 gulp.task('watch', ['server'], function() {
   livereload.listen();
 
@@ -56,5 +60,5 @@ gulp.task('watch', ['server'], function() {
 });
 
 gulp.task('default', ['clean'], function() {
-  gulp.start('templates', 'stylesheets', 'javascripts', 'images');
+  gulp.start('cname', 'templates', 'stylesheets', 'javascripts', 'images');
 });
