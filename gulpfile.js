@@ -19,9 +19,9 @@ gulp.task('stylesheets', function() {
 
 gulp.task('javascripts', function() {
   gulp.src('./javascripts/*.js')
-    .pipe(concat('application.js'))
+    .pipe(concat('all.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./dist/javascripts'));
 });
 
 gulp.task('server', function(next) {
