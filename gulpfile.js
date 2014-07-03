@@ -12,8 +12,8 @@ gulp.task('templates', function() {
 
 gulp.task('stylesheets', function() {
   gulp.src('./stylesheets/*.scss')
-      .pipe(sass())
-      .pipe(gulp.dest('./dist/stylesheets'));
+    .pipe(sass())
+    .pipe(gulp.dest('./dist/stylesheets'));
 });
 
 gulp.task('javascripts', function() {
