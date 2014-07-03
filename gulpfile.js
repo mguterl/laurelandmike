@@ -8,6 +8,10 @@ gulp.task('templates', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
+gulp.task('watch', function() {
+  gulp.watch('templates/**/*.jade', ['templates']);
+});
+
 gulp.task('default', function() {
   gulp.start('templates');
 });
