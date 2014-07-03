@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
+    rimraf = require('gulp-rimraf'),
     sass = require('gulp-sass');
 
 gulp.task('templates', function() {
@@ -33,6 +34,11 @@ gulp.task('images', function() {
     .pipe(gulp.dest('./dist/images'));
 });
 
+gulp.task('clean', function() {
+  gulp.src('./dist', { read: false })
+    .pipe(rimraf())
+});
+
 gulp.task('server', function(next) {
   var connect = require('connect'),
       server = connect();
@@ -49,6 +55,6 @@ gulp.task('watch', ['server'], function() {
   gulp.watch('images/**', ['images']);
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['clean'], function() {
   gulp.start('templates', 'stylesheets', 'javascripts', 'images');
 });
