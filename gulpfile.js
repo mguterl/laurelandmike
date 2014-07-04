@@ -50,7 +50,7 @@ gulp.task('cname', function() {
 gulp.task('watch', ['server'], function() {
   livereload.listen();
 
-  gulp.watch(['dist/**']).on('change', livereload.changed)
+  gulp.watch('dist/**').on('change', livereload.changed)
   gulp.watch('templates/**/*.jade', ['templates']);
   gulp.watch('stylesheets/**/*.scss', ['stylesheets']);
   gulp.watch('javascripts/**/*.js', ['javascripts']);
