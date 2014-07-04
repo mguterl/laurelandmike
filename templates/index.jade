@@ -6,6 +6,11 @@ html(lang='en')
     script(src='javascripts/all.js')
     title Laurel and Mike
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-  body
+  body(ng-app='app')
     h1 Laurel and Mike
-    img(src='images/main.jpg')
+    ul
+      li
+        a(ui-sref='home') Home
+      li
+        a(ui-sref='rsvp') RSVP
+    div(ui-view)
