@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     ngAnnotate = require('gulp-ng-annotate'),
     imagemin = require('gulp-imagemin'),
+    minifyCSS = require('gulp-minify-css'),
     sass = require('gulp-sass');
 
 gulp.task('templates', function() {
@@ -15,7 +16,9 @@ gulp.task('templates', function() {
 
 gulp.task('stylesheets', function() {
   gulp.src('./stylesheets/*.scss')
-    .pipe(sass())
+    .pipe(sass({ includePaths: ['./stylesheets'] }))
+    .pipe(concat('all.css'))
+    .pipe(minifyCSS())
     .pipe(gulp.dest('./dist/stylesheets'));
 });
 
