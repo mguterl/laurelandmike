@@ -17,13 +17,7 @@ gulp.task('stylesheets', function() {
 });
 
 gulp.task('javascripts', function() {
-  gulp.src([
-    './javascripts/angular.js',
-    './javascripts/angular-ui-router.js',
-    './javascripts/*.js'
-  ])
-    .pipe(concat('all.js'))
-    .pipe(uglify())
+  gulp.src('./javascripts/**/*.js')
     .pipe(gulp.dest('./dist/javascripts'));
 });
 
