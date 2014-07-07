@@ -5,8 +5,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     ngAnnotate = require('gulp-ng-annotate'),
     imagemin = require('gulp-imagemin'),
-    minifyCSS = require('gulp-minify-css'),
-    sass = require('gulp-sass');
+    minifyCSS = require('gulp-minify-css');
 
 gulp.task('templates', function() {
   gulp.src('./templates/*.jade')
@@ -15,8 +14,7 @@ gulp.task('templates', function() {
 });
 
 gulp.task('stylesheets', function() {
-  gulp.src('./stylesheets/*.scss')
-    .pipe(sass({ includePaths: ['./stylesheets'] }))
+  gulp.src('./stylesheets/*.css')
     .pipe(concat('all.css'))
     .pipe(minifyCSS())
     .pipe(gulp.dest('./dist/stylesheets'));
@@ -61,7 +59,7 @@ gulp.task('watch', ['server'], function() {
 
   gulp.watch('dist/**').on('change', livereload.changed)
   gulp.watch('templates/**/*.jade', ['templates']);
-  gulp.watch('stylesheets/**/*.scss', ['stylesheets']);
+  gulp.watch('stylesheets/**/*.css', ['stylesheets']);
   gulp.watch('javascripts/**/*.js', ['javascripts']);
 });
 
