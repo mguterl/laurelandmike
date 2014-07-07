@@ -13,12 +13,12 @@ gulp.task('templates', function() {
 gulp.task('stylesheets', function() {
   gulp.src('./stylesheets/*.css')
     .pipe(minifyCSS())
-    .pipe(gulp.dest('./dist/stylesheets'));
+    .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('javascripts', function() {
   gulp.src('./javascripts/**/*.js')
-    .pipe(gulp.dest('./dist/javascripts'));
+    .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('images', function() {
@@ -26,7 +26,7 @@ gulp.task('images', function() {
     .pipe(imagemin({
       progressive: true
     }))
-    .pipe(gulp.dest('./dist/images'));
+    .pipe(gulp.dest('./dist/img'));
 });
 
 gulp.task('clean', function(cb) {
