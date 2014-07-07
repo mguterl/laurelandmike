@@ -12,7 +12,6 @@ gulp.task('templates', function() {
 
 gulp.task('stylesheets', function() {
   gulp.src('./stylesheets/*.css')
-    .pipe(concat('all.css'))
     .pipe(minifyCSS())
     .pipe(gulp.dest('./dist/stylesheets'));
 });
