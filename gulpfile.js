@@ -3,7 +3,6 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    ngAnnotate = require('gulp-ng-annotate'),
     imagemin = require('gulp-imagemin'),
     minifyCSS = require('gulp-minify-css');
 
@@ -26,7 +25,6 @@ gulp.task('javascripts', function() {
     './javascripts/angular-ui-router.js',
     './javascripts/*.js'
   ])
-    .pipe(ngAnnotate())
     .pipe(concat('all.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./dist/javascripts'));
