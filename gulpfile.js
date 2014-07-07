@@ -1,14 +1,12 @@
 var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
-    jade = require('gulp-jade'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     imagemin = require('gulp-imagemin'),
     minifyCSS = require('gulp-minify-css');
 
 gulp.task('templates', function() {
-  gulp.src('./templates/*.jade')
-    .pipe(jade())
+  gulp.src('./templates/**/*.html')
     .pipe(gulp.dest('./dist/'));
 });
 
@@ -56,7 +54,7 @@ gulp.task('watch', ['server'], function() {
   livereload.listen();
 
   gulp.watch('dist/**').on('change', livereload.changed)
-  gulp.watch('templates/**/*.jade', ['templates']);
+  gulp.watch('templates/**/*.html', ['templates']);
   gulp.watch('stylesheets/**/*.css', ['stylesheets']);
   gulp.watch('javascripts/**/*.js', ['javascripts']);
 });
